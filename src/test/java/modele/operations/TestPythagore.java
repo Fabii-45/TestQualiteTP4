@@ -5,17 +5,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 
-public class TestSomme{
-
-    private Somme somme;
+public class TestPythagore {
+    private Pythagore pythagore;
 
     @Test
     public void testGetResultatOK(){
 
         Operations operations = mock(Operations.class);
-        somme = new Somme(operations);
-        Assertions.assertDoesNotThrow(()->somme.getResultat(1,2));
-        Assertions.assertEquals(3, somme.getResultat(1,2));
+        pythagore = new Pythagore(operations);
+        Assertions.assertDoesNotThrow(()->pythagore.getResultat(4,3));
+        Assertions.assertEquals(5, pythagore.getResultat(4,3));
 
     }
 }

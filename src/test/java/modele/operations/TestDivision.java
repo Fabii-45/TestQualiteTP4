@@ -5,17 +5,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 
-public class TestSomme{
+public class TestDivision{
 
-    private Somme somme;
+    private Division division;
 
     @Test
     public void testGetResultatOK(){
 
         Operations operations = mock(Operations.class);
-        somme = new Somme(operations);
-        Assertions.assertDoesNotThrow(()->somme.getResultat(1,2));
-        Assertions.assertEquals(3, somme.getResultat(1,2));
+        division = new Division(operations);
+        Assertions.assertDoesNotThrow(()->division.getResultat(12,3));
+        Assertions.assertEquals(4, division.getResultat(12,3));
 
     }
 }
