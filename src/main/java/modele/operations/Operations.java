@@ -21,31 +21,44 @@ public abstract class Operations {
     protected abstract double getResultat(double operande1, double operande2);
 
     public  double getResultat(String operation, double operande1, double operande2) throws NonSupporteeException {
-        if (this.nomOperation.equals(operation)) {
+        if (this.getNomOperation().equals(operation)) {
             return this.getResultat(operande1,operande2);
         }
         else {
-            if (this.next==null) {
+            if (this.getNext()==null) {
                 throw new NonSupporteeException();
             }
             else {
-                return this.next.getResultat(operation,operande1,operande2);
+                return this.getNext().getResultat(operation,operande1,operande2);
             }
         }
     }
 
     public Collection<String> getOperations() {
         Collection<String> others;
-        if (next == null) {
+        if (getNext() == null) {
             others= new ArrayList<String>();
         }
         else {
-            others = next.getOperations();
+            others = getNext().getOperations();
         }
-        others.add(nomOperation);
+        others.add(getNomOperation());
         return others;
     }
 
+    public String getNomOperation() {
+        return nomOperation;
+    }
 
+    public void setNomOperation(String nomOperation) {
+        this.nomOperation = nomOperation;
+    }
 
+    public Operations getNext() {
+        return next;
+    }
+
+    public void setNext(Operations next) {
+        this.next = next;
+    }
 }

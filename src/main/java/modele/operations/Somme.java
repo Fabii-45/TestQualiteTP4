@@ -3,6 +3,7 @@ package modele.operations;
 
 public class Somme extends Operations {
 
+    public Somme(){};
 
     public Somme(Operations next) {
         super("Somme", next);
